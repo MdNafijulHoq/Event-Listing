@@ -11,7 +11,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/eventmanagement/api': {
-        target: "http://localhost:8080"
+        target: "https://event-listing-six.vercel.app"
       }
     }
   },
