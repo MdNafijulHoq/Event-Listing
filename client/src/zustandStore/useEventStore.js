@@ -8,7 +8,7 @@ const EventStore = create((set) => ({
 
     getEvent: async () => {
         try {
-            let response = await axios.get('/eventmanagement/api/GetEvent')
+            let response = await axios.get('https://event-listing-six.vercel.app/eventmanagement/api/GetEvent')
             if(response.data.status === "success"){
                 set({Event: response.data.data})
             }  
@@ -20,7 +20,7 @@ const EventStore = create((set) => ({
 
     createEvent: async (formData) => {
         try {
-            let response = await axios.post('/eventmanagement/api/CreateEvent', formData)
+            let response = await axios.post('https://event-listing-six.vercel.app/eventmanagement/api/CreateEvent', formData)
             if(response.data.status === "success"){
                 set({Event: response.data.data})
                 toast.success("Event Created")
@@ -33,7 +33,7 @@ const EventStore = create((set) => ({
 
     getEventByUser: async () => {
         try {
-            let response = await axios.get('/eventmanagement/api/EventByUser')
+            let response = await axios.get('https://event-listing-six.vercel.app/eventmanagement/api/EventByUser')
             if(response.data.status === "success"){
                 set({Event: response.data.data})
             }  
@@ -45,7 +45,7 @@ const EventStore = create((set) => ({
 
     GetEventDetailsByID:  async (id) => {
         try {
-            let response = await axios.get(`/eventmanagement/api/GetEventDetailsByID/${id}`)
+            let response = await axios.get(`https://event-listing-six.vercel.app/eventmanagement/api/GetEventDetailsByID/${id}`)
             if(response.data.status === "success"){
                 set({Event: response.data.data})
             }
@@ -67,7 +67,7 @@ const EventStore = create((set) => ({
           });
       
           if (result.isConfirmed) {
-            let response = await axios.delete(`/eventmanagement/api/EventDelete/${id}`);
+            let response = await axios.delete(`https://event-listing-six.vercel.app/eventmanagement/api/EventDelete/${id}`);
             if (response.data.data?.deletedCount > 0) {
               await Swal.fire({
                 title: "Deleted!",

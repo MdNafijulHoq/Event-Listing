@@ -6,7 +6,7 @@ const CategoryStore = create((set) =>({
 
     getCategory: async () => {
         try {
-            let response = await axios.get('/eventmanagement/api/ViewCategory')
+            let response = await axios.get('https://event-listing-six.vercel.app/eventmanagement/api/ViewCategory')
             if(response.data.status === "success"){
                 set({category: response.data.data})
             }
@@ -17,7 +17,7 @@ const CategoryStore = create((set) =>({
 
     getByCategory:  async (id) => {
         try {
-            let response = await axios.get(`/eventmanagement/api/ListByCategory/${id}`)
+            let response = await axios.get(`https://event-listing-six.vercel.app/eventmanagement/api/ListByCategory/${id}`)
             if(response.data.status === "success"){
                 set({category: response.data.data})
             }
